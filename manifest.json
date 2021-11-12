@@ -1,0 +1,56 @@
+//插件的配置文件
+{
+    "manifest_version": 2,
+    "name": "demo",
+    "version": "2.0",
+    "description": "demo 插件",
+    "icons": {//浏览器扩展列表的图标
+        "16": "img/wallet.png",
+        "48": "img/wallet.png",
+        "128": "img/wallet.png"
+    },
+    //浏览器右上角插件图标及其被点击时弹出的界面
+    "browser_action":{
+        "default_icon":"img/logo.png",
+        "default_popup":"popup.html"
+    },
+    // "page_action":{//one of browser_action  page_action
+    //   "default_icon":"img/logo.png",
+    //   "default_title":"page action...",
+    //   "default_popup":"popup.html"
+    // },
+    "background":{
+        "scripts": ["js/event.js"],//后台运行的js代码
+        "persistent": false//一直运行还是事件触发
+    },
+    "permissions":[//操作权限
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs",
+        "https://www.baidu.com/",
+        "<all_urls>"
+    ],
+    "options_page":"options.html",
+    "content_scripts":[
+      {
+        "matches":["*://*.baidu.com/*"],//像哪个页面注入代码
+        "js":["js/event.js"]
+      }
+    ],
+    //8-------->
+    "chrome_url_overrides":{//覆盖浏览器默认的新标签页，历史记录页，书签
+      //"newtab":"new.html"
+      "history":"new.html"
+      //"bookmarks":"new.html"
+    },
+    "web_accessible_resources": ["images/*.png"]
+
+
+    // 向地址栏注册一个关键字以提供搜索建议，只能设置一个关键字
+    //"omnibox": { "keyword" : "go" }
+    // 默认语言
+    // "default_locale": "zh_CN",
+    // // devtools页面入口，注意只能指向一个HTML文件，不能是JS文件
+    // "devtools_page": "devtools.html"
+  }
