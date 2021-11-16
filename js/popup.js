@@ -29,11 +29,11 @@ notice.addEventListener('click', function(e) {
   chrome.notifications.create('limitNotifydd',notifyOptions);
 })
 //5--------------->event
-chrome.storage.onChanged.addListener(function(changes,storageName){
-  //changes.txt.newValue:txt变化后的值
-  chrome.browserAction.setBadgeText({"text":changes.txt.newValue.toString()})//只显示四个字符
-  chrome.browserAction.setBadgeBackgroundColor({"color":[0,255,23,0.6]})
-})
+// chrome.storage.onChanged.addListener(function(changes,storageName){
+//   //changes.txt.newValue:txt变化后的值
+//   chrome.browserAction.setBadgeText({"text":changes.txt.newValue.toString()})//只显示四个字符
+//   chrome.browserAction.setBadgeBackgroundColor({"color":[0,255,23,0.6]})
+// })
 
 linkto.addEventListener('click', function(e) {  
   console.log(222);
