@@ -1,4 +1,5 @@
 document.body.style.border = "5px solid red"
+document.cookie = "H_PS_PSSID="
 //4------------------
 let contextMenu = {
   id: "show",
